@@ -1,0 +1,12 @@
+{
+  "y": 100,
+  "x": 100,
+  "width": 1400,
+  "height": 900,
+  "frame": true,
+  "autoHideMenuBar": true,
+  "icon": "../assets/notion-icon-256-2.png",
+  "webPreferences": {
+    "nodeIntegration": true
+  }
+}

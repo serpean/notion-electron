@@ -1,0 +1,61 @@
+{
+  "name": "notion-electron",
+  "version": "0.0.2",
+  "main": "./out/main.js",
+  "license": "MIT",
+  "description": "Electron app for notion.so",
+  "author": "serpean",
+  "homepage": "https://github.com/serpean/notion-electron",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "lint": "tslint -c tslint.json -p tsconfig.json",
+    "start": "yarn run build && electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "dist:linux": "electron-builder --linux deb",
+    "dist:macos": "electron-builder --mac",
+    "dist:win": "electron-builder --win",
+    "postinstall": "electron-builder install-app-deps",
+    "publish": "build -p always"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "^6.0.12",
+    "electron-builder": "^21.2.0",
+    "electron-packager": "^14.0.6",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.6.4"
+  },
+  "build": {
+    "appId": "electron.notion.so",
+    "files": [
+      "out"
+    ],
+    "productName": "Notion",
+    "appImage": {
+      "category": "Productivity",
+      "desktop": {
+        "Name": "Notion",
+        "GenericName": "Text application",
+        "Type": "Application",
+        "Terminal": false,
+        "Categories": "GNOME;GTK;Notion;Notes;"
+      }
+    },
+    "linux": {
+      "category": "Productivity",
+      "maintainer": "sergi9p@gmail.com",
+      "desktop": {
+        "StartupWMClass": "Notion"
+      },
+      "target": "deb"
+    },
+    "win": {
+      "target": "msi"
+    },
+    "mac": {
+      "category": "public.app-category.productivity"
+    }
+  }
+}
